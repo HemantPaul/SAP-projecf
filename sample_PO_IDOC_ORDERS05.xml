@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================
+  SAP IDOC: ORDERS05 - Purchase Order Message
+  Company : TechMart Pvt. Ltd.
+  Use Case: iFlow 1 - PO_Send_to_Vendor
+  Project : SAP Integration Suite P2P Blueprint
+  ============================================================
+-->
+<ORDERS05>
+  <IDOC BEGIN="1">
+    <EDI_DC40 SEGMENT="1">
+      <TABNAM>EDI_DC40</TABNAM>
+      <MANDT>100</MANDT>
+      <DOCNUM>0000000000123456</DOCNUM>
+      <DOCREL>740</DOCREL>
+      <STATUS>30</STATUS>
+      <DIRECT>1</DIRECT>
+      <OUTMOD>2</OUTMOD>
+      <IDOCTYP>ORDERS05</IDOCTYP>
+      <MESTYP>ORDERS</MESTYP>
+      <SNDPOR>SAPCPI_OUT</SNDPOR>
+      <SNDPRT>LS</SNDPRT>
+      <SNDPRN>TECHMART_ECC</SNDPRN>
+      <RCVPOR>VENDOR_PORTAL</RCVPOR>
+      <RCVPRT>LS</RCVPRT>
+      <RCVPRN>V1001_PORTAL</RCVPRN>
+      <CREDAT>20260419</CREDAT>
+      <CRETIM>103045</CRETIM>
+    </EDI_DC40>
+
+    <!-- Header: General data -->
+    <E1EDK01 SEGMENT="1">
+      <ACTION>000</ACTION>
+      <CURCY>INR</CURCY>
+      <WKURS>1.000</WKURS>
+      <ZTERM>NT30</ZTERM>        <!-- Net 30 payment terms -->
+      <BSART>NB</BSART>          <!-- Standard PO -->
+      <BELNR>4500001234</BELNR>  <!-- PO Number -->
+      <NTGEW>150.000</NTGEW>
+      <GEWEI>KG</GEWEI>
+    </E1EDK01>
+
+    <!-- Partner: Vendor -->
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>LF</PARVW>         <!-- Vendor partner role -->
+      <PARTN>V1001</PARTN>       <!-- Vendor ID -->
+      <TELF1>+91-657-2345678</TELF1>
+      <NAMEF>TechSupplies India Pvt. Ltd.</NAMEF>
+    </E1EDKA1>
+
+    <!-- Partner: Delivery address -->
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>WE</PARVW>         <!-- Ship-to party -->
+      <PARTN>TM_PLANT_01</PARTN>
+      <STRAS>Plot 42, Industrial Area</STRAS>
+      <ORT01>Jamshedpur</ORT01>
+      <PSTLZ>831001</PSTLZ>
+      <LAND1>IN</LAND1>
+    </E1EDKA1>
+
+    <!-- Dates -->
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>012</IDDAT>         <!-- Document date -->
+      <DATUM>20260419</DATUM>
+    </E1EDK03>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>002</IDDAT>         <!-- Requested delivery date -->
+      <DATUM>20260501</DATUM>
+    </E1EDK03>
+
+    <!-- Line Item 1 -->
+    <E1EDP01 SEGMENT="1">
+      <POSEX>00001</POSEX>
+      <ACTION>000</ACTION>
+      <MATNR>MAT-LAPTOP-001</MATNR>
+      <MENGE>10.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BMNG2>10.000</BMNG2>
+      <PMENE>EA</PMENE>
+      <NETPR>45000.00</NETPR>
+      <PEINH>1</PEINH>
+      <NETWR>450000.00</NETWR>
+      <MWSBT>81000.00</MWSBT>   <!-- GST 18% -->
+      <TXJCD>IN</TXJCD>
+    </E1EDP01>
+
+    <!-- Line Item 1 - Short text -->
+    <E1EDP19 SEGMENT="1">
+      <QUALF>002</QUALF>
+      <IDTNR>MAT-LAPTOP-001</IDTNR>
+      <KTEXT>Business Laptop 15" - i7 16GB 512SSD</KTEXT>
+    </E1EDP19>
+
+    <!-- Line Item 2 -->
+    <E1EDP01 SEGMENT="1">
+      <POSEX>00002</POSEX>
+      <ACTION>000</ACTION>
+      <MATNR>MAT-MOUSE-USB</MATNR>
+      <MENGE>10.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BMNG2>10.000</BMNG2>
+      <PMENE>EA</PMENE>
+      <NETPR>850.00</NETPR>
+      <PEINH>1</PEINH>
+      <NETWR>8500.00</NETWR>
+      <MWSBT>1530.00</MWSBT>
+      <TXJCD>IN</TXJCD>
+    </E1EDP01>
+
+    <E1EDP19 SEGMENT="1">
+      <QUALF>002</QUALF>
+      <IDTNR>MAT-MOUSE-USB</IDTNR>
+      <KTEXT>USB Optical Mouse - Wireless</KTEXT>
+    </E1EDP19>
+
+    <!-- Summary -->
+    <E1EDS01 SEGMENT="1">
+      <SUMID>002</SUMID>
+      <SUMME>458500.00</SUMME>   <!-- Net total -->
+      <SUNIT>INR</SUNIT>
+    </E1EDS01>
+
+  </IDOC>
+</ORDERS05>

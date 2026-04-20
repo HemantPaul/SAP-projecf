@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#F0F4FA" rx="12"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="900" height="54" fill="#003399" rx="12"/>
+  <rect x="0" y="30" width="900" height="24" fill="#003399"/>
+  <text x="450" y="34" text-anchor="middle" font-size="17" fill="white" font-weight="bold">SAP Integration Suite – P2P Integration Architecture</text>
+  <text x="450" y="50" text-anchor="middle" font-size="11" fill="#AABBEE">TechMart Pvt. Ltd. | SAP Integration Developer Capstone Project</text>
+
+  <!-- ── SAP ECC Box ── -->
+  <rect x="30" y="90" width="190" height="260" fill="white" stroke="#003399" stroke-width="2" rx="10"/>
+  <rect x="30" y="90" width="190" height="36" fill="#003399" rx="10"/>
+  <rect x="30" y="108" width="190" height="18" fill="#003399"/>
+  <text x="125" y="113" text-anchor="middle" font-size="13" fill="white" font-weight="bold">SAP ECC 6.0</text>
+  <text x="125" y="127" text-anchor="middle" font-size="10" fill="#CCDDFF">Backend ERP</text>
+
+  <!-- ECC Sub-modules -->
+  <rect x="45" y="140" width="160" height="38" fill="#E8EEF7" rx="6"/>
+  <text x="125" y="156" text-anchor="middle" font-size="11" fill="#003399" font-weight="bold">SAP MM</text>
+  <text x="125" y="170" text-anchor="middle" font-size="9" fill="#555">Materials Management</text>
+
+  <rect x="45" y="188" width="160" height="38" fill="#E8EEF7" rx="6"/>
+  <text x="125" y="204" text-anchor="middle" font-size="11" fill="#003399" font-weight="bold">SAP FI / FICO</text>
+  <text x="125" y="218" text-anchor="middle" font-size="9" fill="#555">Financial Accounting</text>
+
+  <rect x="45" y="236" width="160" height="38" fill="#E8EEF7" rx="6"/>
+  <text x="125" y="252" text-anchor="middle" font-size="11" fill="#003399" font-weight="bold">SAP WM</text>
+  <text x="125" y="266" text-anchor="middle" font-size="9" fill="#555">Warehouse Management</text>
+
+  <rect x="45" y="284" width="160" height="38" fill="#E8EEF7" rx="6"/>
+  <text x="125" y="300" text-anchor="middle" font-size="11" fill="#003399" font-weight="bold">RFC / BAPI</text>
+  <text x="125" y="314" text-anchor="middle" font-size="9" fill="#555">Integration Interface</text>
+
+  <!-- ── SAP Integration Suite Box (centre) ── -->
+  <rect x="300" y="70" width="300" height="400" fill="white" stroke="#0070F2" stroke-width="2.5" rx="12"/>
+  <rect x="300" y="70" width="300" height="40" fill="#0070F2" rx="12"/>
+  <rect x="300" y="96" width="300" height="14" fill="#0070F2"/>
+  <text x="450" y="94" text-anchor="middle" font-size="13" fill="white" font-weight="bold">SAP Integration Suite</text>
+  <text x="450" y="108" text-anchor="middle" font-size="10" fill="#DDEEFF">(SAP CPI on SAP BTP)</text>
+
+  <!-- BTP label -->
+  <rect x="310" y="120" width="280" height="22" fill="#E0EBFF" rx="5"/>
+  <text x="450" y="135" text-anchor="middle" font-size="10" fill="#003399" font-weight="bold">☁ SAP Business Technology Platform (BTP)</text>
+
+  <!-- iFlow boxes -->
+  <rect x="320" y="152" width="260" height="52" fill="#003399" rx="8"/>
+  <text x="450" y="171" text-anchor="middle" font-size="11" fill="white" font-weight="bold">iFlow 1: PO_Send_to_Vendor</text>
+  <text x="450" y="185" text-anchor="middle" font-size="9" fill="#CCDDFF">IDOC → JSON | REST POST to Vendor Portal</text>
+  <text x="450" y="197" text-anchor="middle" font-size="9" fill="#AABBDD">Retry: 3× | Backoff: 30s exponential</text>
+
+  <rect x="320" y="216" width="260" height="52" fill="#005BB5" rx="8"/>
+  <text x="450" y="235" text-anchor="middle" font-size="11" fill="white" font-weight="bold">iFlow 2: Vendor_ACK_to_SAP</text>
+  <text x="450" y="249" text-anchor="middle" font-size="9" fill="#CCDDFF">JSON → IDOC | REST GET Poll (5 min)</text>
+  <text x="450" y="261" text-anchor="middle" font-size="9" fill="#AABBDD">Updates PO Confirmation Status in MM</text>
+
+  <rect x="320" y="280" width="260" height="52" fill="#003399" rx="8"/>
+  <text x="450" y="299" text-anchor="middle" font-size="11" fill="white" font-weight="bold">iFlow 3: Invoice_Receive</text>
+  <text x="450" y="313" text-anchor="middle" font-size="9" fill="#CCDDFF">JSON → XML | BAPI_ACC_DOCUMENT_POST</text>
+  <text x="450" y="325" text-anchor="middle" font-size="9" fill="#AABBDD">Three-way match trigger in SAP FI</text>
+
+  <rect x="320" y="344" width="260" height="52" fill="#005BB5" rx="8"/>
+  <text x="450" y="363" text-anchor="middle" font-size="11" fill="white" font-weight="bold">iFlow 4: Payment_Confirm</text>
+  <text x="450" y="377" text-anchor="middle" font-size="9" fill="#CCDDFF">FI Doc → JSON | REST PATCH to Vendor</text>
+  <text x="450" y="389" text-anchor="middle" font-size="9" fill="#AABBDD">Status: PAYMENT_CLEARED</text>
+
+  <!-- Monitoring row -->
+  <rect x="320" y="408" width="260" height="48" fill="#F0F4FA" rx="8" stroke="#BBCCEE" stroke-width="1"/>
+  <text x="450" y="426" text-anchor="middle" font-size="10" fill="#003399" font-weight="bold">📊 Monitoring &amp; Security</text>
+  <text x="450" y="441" text-anchor="middle" font-size="9" fill="#555">Message Monitor | Alert Management</text>
+  <text x="450" y="453" text-anchor="middle" font-size="9" fill="#555">OAuth 2.0 | mTLS | PGP | Audit Logs</text>
+
+  <!-- ── Vendor Portal Box ── -->
+  <rect x="680" y="90" width="190" height="260" fill="white" stroke="#00AA55" stroke-width="2" rx="10"/>
+  <rect x="680" y="90" width="190" height="36" fill="#00AA55" rx="10"/>
+  <rect x="680" y="108" width="190" height="18" fill="#00AA55"/>
+  <text x="775" y="113" text-anchor="middle" font-size="13" fill="white" font-weight="bold">Vendor Portal</text>
+  <text x="775" y="127" text-anchor="middle" font-size="10" fill="#CCFFDD">External SaaS System</text>
+
+  <rect x="695" y="140" width="160" height="38" fill="#E6F9EE" rx="6"/>
+  <text x="775" y="156" text-anchor="middle" font-size="11" fill="#007733" font-weight="bold">REST API</text>
+  <text x="775" y="170" text-anchor="middle" font-size="9" fill="#555">JSON Payloads | HTTPS</text>
+
+  <rect x="695" y="188" width="160" height="38" fill="#E6F9EE" rx="6"/>
+  <text x="775" y="204" text-anchor="middle" font-size="11" fill="#007733" font-weight="bold">Vendor Dashboard</text>
+  <text x="775" y="218" text-anchor="middle" font-size="9" fill="#555">PO view, Invoice upload</text>
+
+  <rect x="695" y="236" width="160" height="38" fill="#E6F9EE" rx="6"/>
+  <text x="775" y="252" text-anchor="middle" font-size="11" fill="#007733" font-weight="bold">SFTP (Batch)</text>
+  <text x="775" y="266" text-anchor="middle" font-size="9" fill="#555">Bulk invoice file upload</text>
+
+  <rect x="695" y="284" width="160" height="38" fill="#E6F9EE" rx="6"/>
+  <text x="775" y="300" text-anchor="middle" font-size="11" fill="#007733" font-weight="bold">OAuth 2.0</text>
+  <text x="775" y="314" text-anchor="middle" font-size="9" fill="#555">Client Credentials Auth</text>
+
+  <!-- ── Arrows ── -->
+  <!-- SAP ECC → CPI (iFlow1 trigger) -->
+  <line x1="220" y1="168" x2="300" y2="178" stroke="#003399" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="258" y="162" text-anchor="middle" font-size="8" fill="#003399">IDOC</text>
+
+  <!-- CPI → SAP ECC (iFlow2,3 result) -->
+  <line x1="300" y1="240" x2="220" y2="230" stroke="#005BB5" stroke-width="2" marker-end="url(#arrowBlue2)"/>
+  <text x="258" y="248" text-anchor="middle" font-size="8" fill="#005BB5">RFC/BAPI</text>
+
+  <!-- CPI → SAP FI -->
+  <line x1="300" y1="310" x2="220" y2="306" stroke="#003399" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="258" y="323" text-anchor="middle" font-size="8" fill="#003399">BAPI Post</text>
+
+  <!-- CPI → Vendor Portal (iFlow1) -->
+  <line x1="600" y1="178" x2="680" y2="168" stroke="#003399" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="640" y="162" text-anchor="middle" font-size="8" fill="#003399">REST POST</text>
+
+  <!-- Vendor → CPI (iFlow2 ACK) -->
+  <line x1="680" y1="230" x2="600" y2="240" stroke="#00AA55" stroke-width="2" marker-end="url(#arrowBlue2)"/>
+  <text x="640" y="248" text-anchor="middle" font-size="8" fill="#00AA55">JSON ACK</text>
+
+  <!-- Vendor → CPI (iFlow3 invoice) -->
+  <line x1="680" y1="298" x2="600" y2="305" stroke="#00AA55" stroke-width="2" marker-end="url(#arrowBlue2)"/>
+  <text x="640" y="316" text-anchor="middle" font-size="8" fill="#00AA55">Invoice JSON</text>
+
+  <!-- CPI → Vendor (iFlow4 payment) -->
+  <line x1="600" y1="368" x2="680" y2="358" stroke="#003399" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="640" y="382" text-anchor="middle" font-size="8" fill="#003399">PATCH Confirm</text>
+
+  <!-- Arrow Markers -->
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#003399"/>
+    </marker>
+    <marker id="arrowBlue2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#005BB5"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#00AA55"/>
+    </marker>
+  </defs>
+
+  <!-- ── P2P Flow Steps at Bottom ── -->
+  <rect x="30" y="380" width="230" height="190" fill="white" stroke="#CCCCCC" stroke-width="1" rx="8"/>
+  <rect x="30" y="380" width="230" height="28" fill="#003399" rx="8"/>
+  <rect x="30" y="396" width="230" height="12" fill="#003399"/>
+  <text x="145" y="399" text-anchor="middle" font-size="11" fill="white" font-weight="bold">P2P Process Steps</text>
+  <text x="50" y="425" font-size="10" fill="#333">1. Purchase Requisition (PR)</text>
+  <text x="50" y="441" font-size="10" fill="#333">2. Purchase Order (PO) → Vendor</text>
+  <text x="50" y="457" font-size="10" fill="#333">3. Vendor Acknowledgement</text>
+  <text x="50" y="473" font-size="10" fill="#333">4. Goods Receipt (GR)</text>
+  <text x="50" y="489" font-size="10" fill="#333">5. Invoice Receipt (IR)</text>
+  <text x="50" y="505" font-size="10" fill="#333">6. Three-Way Match (PO+GR+IR)</text>
+  <text x="50" y="521" font-size="10" fill="#333">7. Payment &amp; Confirmation</text>
+  <text x="50" y="545" font-size="9" fill="#888" font-style="italic">Automated via SAP Integration Suite</text>
+
+  <!-- Tech stack legend -->
+  <rect x="680" y="380" width="190" height="190" fill="white" stroke="#CCCCCC" stroke-width="1" rx="8"/>
+  <rect x="680" y="380" width="190" height="28" fill="#0070F2" rx="8"/>
+  <rect x="680" y="396" width="190" height="12" fill="#0070F2"/>
+  <text x="775" y="399" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Tech Stack</text>
+  <text x="696" y="425" font-size="9" fill="#333">▪ SAP BTP (Cloud Foundry)</text>
+  <text x="696" y="441" font-size="9" fill="#333">▪ SAP Integration Suite / CPI</text>
+  <text x="696" y="457" font-size="9" fill="#333">▪ REST API / SOAP / SFTP / RFC</text>
+  <text x="696" y="473" font-size="9" fill="#333">▪ XML (IDOC) ↔ JSON Mapping</text>
+  <text x="696" y="489" font-size="9" fill="#333">▪ OAuth 2.0 | mTLS | PGP</text>
+  <text x="696" y="505" font-size="9" fill="#333">▪ SAP Message Monitor</text>
+  <text x="696" y="521" font-size="9" fill="#333">▪ SAP Alert Management</text>
+  <text x="696" y="545" font-size="9" fill="#888" font-style="italic">SAP Integration Developer Course</text>
+
+  <!-- Footer -->
+  <rect x="0" y="578" width="900" height="22" fill="#003399"/>
+  <text x="450" y="593" text-anchor="middle" font-size="9" fill="white">TechMart Pvt. Ltd. | SAP P2P Integration Blueprint | Capstone Project 2026 | SAP Integration Developer Course</text>
+</svg>

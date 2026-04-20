@@ -1,0 +1,66 @@
+{
+  "_comment": "SAP Integration Suite P2P Project - TechMart Pvt. Ltd.",
+  "_description": "iFlow 3 SOURCE: Invoice JSON submitted by Vendor Portal, to be mapped and posted in SAP FI",
+
+  "vendorInvoice": {
+    "invoiceNumber": "INV-V1001-2026-0042",
+    "poReference": "4500001234",
+    "vendorId": "V1001",
+    "vendorName": "TechSupplies India Pvt. Ltd.",
+    "vendorGSTIN": "20ABCDE1234F1Z5",
+    "buyerGSTIN": "20XYZPQ9876G1Z8",
+    "invoiceDate": "2026-04-28",
+    "dueDate": "2026-05-28",
+    "currency": "INR",
+    "items": [
+      {
+        "lineItem": 1,
+        "poLineItem": 1,
+        "materialCode": "MAT-LAPTOP-001",
+        "description": "Business Laptop 15 inch - i7 16GB 512SSD",
+        "deliveredQuantity": 10,
+        "unit": "EA",
+        "unitPrice": 45000.00,
+        "netAmount": 450000.00,
+        "cgst": 40500.00,
+        "sgst": 40500.00,
+        "totalTax": 81000.00,
+        "grossAmount": 531000.00
+      },
+      {
+        "lineItem": 2,
+        "poLineItem": 2,
+        "materialCode": "MAT-MOUSE-USB",
+        "description": "USB Optical Mouse - Wireless",
+        "deliveredQuantity": 10,
+        "unit": "EA",
+        "unitPrice": 850.00,
+        "netAmount": 8500.00,
+        "cgst": 765.00,
+        "sgst": 765.00,
+        "totalTax": 1530.00,
+        "grossAmount": 10030.00
+      }
+    ],
+    "totals": {
+      "netAmount": 458500.00,
+      "totalCGST": 41265.00,
+      "totalSGST": 41265.00,
+      "totalTax": 82530.00,
+      "grossAmount": 541030.00,
+      "currency": "INR"
+    },
+    "bankDetails": {
+      "accountName": "TechSupplies India Pvt. Ltd.",
+      "accountNumber": "XXXX-XXXX-1234",
+      "ifscCode": "HDFC0001234",
+      "bankName": "HDFC Bank"
+    },
+    "integrationMetadata": {
+      "sourceSystem": "VENDOR_PORTAL_V1001",
+      "iflowId": "iFlow_Invoice_Receive",
+      "messageId": "MSG-INV-20260428-0042",
+      "timestamp": "2026-04-28T14:22:10Z"
+    }
+  }
+}

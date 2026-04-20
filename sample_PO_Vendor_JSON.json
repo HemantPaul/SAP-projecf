@@ -1,0 +1,64 @@
+{
+  "_comment": "SAP Integration Suite P2P Project - TechMart Pvt. Ltd.",
+  "_description": "iFlow 1 TARGET: JSON payload sent to Vendor Portal after mapping from ORDERS05 IDOC",
+
+  "purchaseOrder": {
+    "poNumber": "4500001234",
+    "poType": "STANDARD",
+    "currency": "INR",
+    "paymentTerms": "NET30",
+    "vendorId": "V1001",
+    "vendorName": "TechSupplies India Pvt. Ltd.",
+    "buyerCompany": "TechMart Pvt. Ltd.",
+    "orderDate": "2026-04-19",
+    "requestedDeliveryDate": "2026-05-01",
+    "plant": "TM_PLANT_01",
+    "deliveryAddress": {
+      "street": "Plot 42, Industrial Area",
+      "city": "Jamshedpur",
+      "pincode": "831001",
+      "state": "Jharkhand",
+      "country": "IN"
+    },
+    "items": [
+      {
+        "lineItem": 1,
+        "materialCode": "MAT-LAPTOP-001",
+        "description": "Business Laptop 15 inch - i7 16GB 512SSD",
+        "quantity": 10,
+        "unit": "EA",
+        "unitPrice": 45000.00,
+        "totalValue": 450000.00,
+        "taxAmount": 81000.00,
+        "taxRate": 18,
+        "taxType": "GST"
+      },
+      {
+        "lineItem": 2,
+        "materialCode": "MAT-MOUSE-USB",
+        "description": "USB Optical Mouse - Wireless",
+        "quantity": 10,
+        "unit": "EA",
+        "unitPrice": 850.00,
+        "totalValue": 8500.00,
+        "taxAmount": 1530.00,
+        "taxRate": 18,
+        "taxType": "GST"
+      }
+    ],
+    "totals": {
+      "netAmount": 458500.00,
+      "totalTax": 82530.00,
+      "grossAmount": 541030.00,
+      "currency": "INR"
+    },
+    "status": "SENT",
+    "integrationMetadata": {
+      "sourceSystem": "SAP_ECC_TM01",
+      "iflowId": "iFlow_PO_Send_to_Vendor",
+      "messageId": "MSG-20260419-001234",
+      "timestamp": "2026-04-19T10:30:45Z",
+      "sapBtpTenant": "techmart-integration"
+    }
+  }
+}
