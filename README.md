@@ -1,17 +1,10 @@
-# SAP Integration Suite - P2P Integration Project
-
+SAP Integration Suite - P2P Integration Project
 
 Student Name   : HEMANT PAUL
 Roll Number    : 2305784
 Program        : SAP INTEGRATION DEVELOPER
 College        : KIIT, Bhubaneswar
 Submission Date: April 21, 2026
-
-
----
-
-
-WHAT IS THIS PROJECT ABOUT?
 
 In this project I tried to solve a common problem that happens in many companies.
 When a company wants to buy something, they create a Purchase Order in SAP and
@@ -27,11 +20,7 @@ invoice comes into SAP by itself. No one has to do it manually.
 I used a made-up company called TechMart Pvt. Ltd. to show how this would work
 in a real company.
 
-
----
-
-
-HOW THE SYSTEM WORKS
+working-
 
 I designed 4 integration flows called iFlows in SAP Integration Suite.
 Each iFlow does one job in the process.
@@ -54,10 +43,7 @@ After SAP processes the payment, this iFlow sends a payment confirmation
 back to the vendor portal automatically.
 
 
----
-
-
-THE FULL PROCESS STEP BY STEP
+THE FULL PROCESS -
 
 Step 1 - Someone in the company raises a Purchase Requisition in SAP MM
 Step 2 - The PR becomes a Purchase Order and iFlow 1 sends it to the vendor
@@ -68,12 +54,9 @@ Step 6 - SAP automatically checks if PO, GR and Invoice all match (3-way match)
 Step 7 - Payment is done and iFlow 4 sends confirmation to vendor
 
 
----
+File details-
 
-
-FILES IN THIS REPOSITORY
-
-HEMANT_PAUL_FINAL_SUBMIT.pdf
+hemantmain.pdf
   This is my main project report. It contains everything about the project.
 
 architecture/architecture_diagram.svg
@@ -107,16 +90,9 @@ message-samples/sample_Invoice_JSON.json
 mapping/message_mapping_rules.md
   This file shows exactly which field in the SAP IDOC maps to which field
   in the JSON. For example BELNR in IDOC becomes poNumber in JSON.
+  
 
-testing/test_cases.md
-  I wrote 25 test cases to check if all 4 iFlows work correctly including
-  normal cases and error cases like duplicate invoices and portal downtime.
-
-
----
-
-
-TECHNOLOGIES I USED
+Technologies used
 
 SAP BTP               - This is SAP's cloud platform where everything runs
 SAP Integration Suite - This is the main tool I used to build the iFlows
@@ -131,10 +107,7 @@ mTLS                  - Used to securely connect to SAP ECC
 PGP Encryption        - Used to protect financial data in transit
 
 
----
-
-
-SECURITY
+SECURITY-
 
 I thought about security while designing this project. Here is what I included:
 
@@ -154,9 +127,6 @@ Every message that passes through SAP Integration Suite is logged
 in SAP CPI Message Monitor and kept for 90 days for audit purposes.
 
 
----
-
-
 FICTITIOUS COMPANY DETAILS
 
 Company Name     : TechMart Pvt. Ltd.
@@ -169,10 +139,8 @@ Vendor Name      : TechSupplies India Pvt. Ltd.
 Vendor ID        : V1001
 
 
----
 
-
-WHAT I WOULD ADD IN THE FUTURE
+WHAT COULD BE ADDED IN THE FUTURE
 
 1. Connect SAP Ariba
    Right now the Purchase Order is created manually inside SAP MM.
@@ -198,13 +166,7 @@ WHAT I WOULD ADD IN THE FUTURE
    how long invoices are taking to get approved, and payment aging reports
    would help the management team make better decisions.
 
-
----
-
-
-IMPORTANT NOTE
-
+*
 All company names, vendor names, amounts and data used in this project
 are completely made up. Nothing here represents any real company.
-This project was made only for my college capstone submission as part of
-the SAP Integration Developer course at KIIT University, Bhubaneswar.
+This project was made only for my college project work.
